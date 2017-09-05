@@ -8,6 +8,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.saaibi.calculadora_rl_ll.SecundActivity"
     tools:showIn="@layout/activity_secund">
+
     <LinearLayout
         android:id="@+id/PantallaPrincipal"
         android:layout_width="match_parent"
@@ -47,11 +48,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/blue"
             android:onClick="onClickNumber"
             android:text="1"
-            android:background="@color/blue"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/button2"
@@ -62,7 +63,7 @@
             android:onClick="onClickNumber"
             android:text="2"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/button3"
@@ -73,7 +74,7 @@
             android:onClick="onClickNumber"
             android:text="3"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/buttonDiv"
@@ -84,7 +85,7 @@
             android:onClick="onClickOperator"
             android:text="÷"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -104,7 +105,7 @@
             android:onClick="onClickNumber"
             android:text="4"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/button5"
@@ -115,7 +116,7 @@
             android:onClick="onClickNumber"
             android:text="5"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/button6"
@@ -143,9 +144,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="2"
         android:background="#000"
         android:gravity="center"
-        android:layout_weight="2"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="8dp">
 
@@ -158,7 +159,7 @@
             android:onClick="onClickNumber"
             android:text="7"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/button8"
@@ -169,7 +170,7 @@
             android:onClick="onClickNumber"
             android:text="8"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/button9"
@@ -180,7 +181,7 @@
             android:onClick="onClickNumber"
             android:text="9"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/buttonRest"
@@ -193,11 +194,12 @@
             android:textColor="@color/white"
             android:textSize="40sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="center"
         android:layout_weight="2"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="8dp">
 
@@ -221,7 +223,7 @@
             android:onClick="onClickNumber"
             android:text="0"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/buttonResult"
@@ -235,6 +237,17 @@
             android:textSize="35sp" />
 
         <Button
+            android:id="@+id/punto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:onClick="onClickNumber"
+            android:text="."
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+        <Button
             android:id="@+id/buttonSum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -243,7 +256,6 @@
             android:onClick="onClickOperator"
             android:text="+"
             android:textColor="@color/white"
-            android:textSize="35sp"/>
+            android:textSize="35sp" />
     </LinearLayout>
-
 </LinearLayout>

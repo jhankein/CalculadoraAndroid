@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean getResult(){
         if(currentOperator == "") return false;
         String[] operation = display.split(Pattern.quote(currentOperator));
-        System.out.println("operation: " + currentOperator);
         if(operation.length < 2) return false;
         System.out.println(operation[0] +" : " + operation[1]);
         result = String.valueOf(operate(operation[0], operation[1], currentOperator));

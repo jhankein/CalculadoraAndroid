@@ -22,7 +22,7 @@ public class SecundActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secund);
-        _screen = (TextView)findViewById(R.id.textView);
+        _screen = (TextView) findViewById(R.id.textView);
         _screen.setText(display);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -35,45 +35,56 @@ public class SecundActivity extends AppCompatActivity {
         });
     }
 
-    private void updateScreen(){
+    private void updateScreen() {
         _screen.setText(display);
     }
 
-    public void onClickNumber(View v){
-        if(result != ""){
+    public void onClickNumber(View v) {
+        if (result != "") {
             clear();
             updateScreen();
         }
         Button b = (Button) v;
-        display += b.getText();
+        validatePunto(b);
         updateScreen();
     }
 
-    private boolean isOperator(char op){
-        switch (op){
-            case '+':
-            case '-':
-            case 'x':
-            case '÷':return true;
-            default: return false;
+    private void validatePunto(Button b) {
+        if (display.contains(".")) {
+            if (!b.getText().toString().contains("."))
+                display += b.getText();
+        } else {
+            display += b.getText();
         }
     }
 
-    public void onClickOperator(View v){
-        if(display == "") return;
-        Button b = (Button)v;
-        if(result != ""){
+    private boolean isOperator(char op) {
+        switch (op) {
+            case '+':
+            case '-':
+            case 'x':
+            case '÷':
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    public void onClickOperator(View v) {
+        if (display == "") return;
+        Button b = (Button) v;
+        if (result != "") {
             String _display = result;
             clear();
             display = _display;
         }
-        if(currentOperator != ""){
-            Log.d("CalcX", ""+display.charAt(display.length()-1));
-            if(isOperator(display.charAt(display.length()-1))){
-                display = display.replace(display.charAt(display.length()-1), b.getText().charAt(0));
+        if (currentOperator != "") {
+            Log.d("CalcX", "" + display.charAt(display.length() - 1));
+            if (isOperator(display.charAt(display.length() - 1))) {
+                display = display.replace(display.charAt(display.length() - 1), b.getText().charAt(0));
                 updateScreen();
                 return;
-            }else{
+            } else {
                 getResult();
                 display = result;
                 result = "";
@@ -85,44 +96,48 @@ public class SecundActivity extends AppCompatActivity {
         updateScreen();
     }
 
-    private void clear(){
+    private void clear() {
         display = "";
         currentOperator = "";
         result = "";
     }
 
-    public void onClickClear(View v){
+    public void onClickClear(View v) {
         clear();
         updateScreen();
     }
 
-    private double operate(String a, String b, String op){
-        switch (op){
-            case "+": return Double.valueOf(a) + Double.valueOf(b);
-            case "-": return Double.valueOf(a) - Double.valueOf(b);
-            case "x": return Double.valueOf(a) * Double.valueOf(b);
-            case "÷": try{
-                return Double.valueOf(a) / Double.valueOf(b);
-            }catch (Exception e){
-                Log.d("Calc", e.getMessage());
-            }
-            default: return -1;
+    private double operate(String a, String b, String op) {
+        switch (op) {
+            case "+":
+                return Double.valueOf(a) + Double.valueOf(b);
+            case "-":
+                return Double.valueOf(a) - Double.valueOf(b);
+            case "x":
+                return Double.valueOf(a) * Double.valueOf(b);
+            case "÷":
+                try {
+                    return Double.valueOf(a) / Double.valueOf(b);
+                } catch (Exception e) {
+                    Log.d("Calc", e.getMessage());
+                }
+            default:
+                return -1;
         }
     }
 
-    private boolean getResult(){
-        if(currentOperator == "") return false;
+    private boolean getResult() {
+        if (currentOperator == "") return false;
         String[] operation = display.split(Pattern.quote(currentOperator));
-        System.out.println("operation: " + currentOperator);
-        if(operation.length < 2) return false;
-        System.out.println(operation[0] +" : " + operation[1]);
+        if (operation.length < 2) return false;
+        System.out.println(operation[0] + " : " + operation[1]);
         result = String.valueOf(operate(operation[0], operation[1], currentOperator));
         return true;
     }
 
-    public void onClickEqual(View v){
-        if(display == "") return;
-        if(!getResult()) return;
+    public void onClickEqual(View v) {
+        if (display == "") return;
+        if (!getResult()) return;
         _screen.setText(display + "\n" + String.valueOf(result));
     }
 
