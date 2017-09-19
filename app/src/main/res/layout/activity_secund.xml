@@ -17,7 +17,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="LinearLayout" />
+            app:title="Crear Evento" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_margin="@dimen/fab_margin"
-        android:tooltipText="RelativeLayout"
+        android:tooltipText=""
         app:layout_anchor="@+id/include3"
         app:layout_anchorGravity="top|center_horizontal"
         app:srcCompat="@android:drawable/ic_menu_set_as" />
